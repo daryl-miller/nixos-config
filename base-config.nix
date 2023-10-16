@@ -112,6 +112,7 @@
     wineWowPackages.waylandFull
     # League fonts
     corefonts
+    dconf
     vulkan-tools
     lutris
   ];
