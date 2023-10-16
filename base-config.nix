@@ -90,17 +90,15 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     home-manager
-   ];
-  };
-    
-
+  ];
+  };    
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
 
   nix.nixPath = [
-   "nixos-config=/home/dmiller/repo/nixos-configs/configuration.nix"
+   "nixos-config=/home/dmiller/repo/nixos-configs/base-config.nix"
   ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
