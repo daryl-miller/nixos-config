@@ -28,7 +28,7 @@
    };
   
   home.packages = [
-    (pkgs.discord.override {  withOpenASAR = true;  withVencord = true;})
+    (pkgs.discord.override { withOpenASAR = true;  withVencord = true;})
     pkgs.git
     pkgs.firefox
     pkgs.thunderbird
@@ -37,6 +37,9 @@
     pkgs.steam
     pkgs.vscode
     pkgs.docker
+    pkgs.awscli2
+    pkgs.xclip
+    pkgs.aws-sso-cli
   ];
 
   programs.vscode = {
@@ -45,11 +48,14 @@
       pkgs.vscode-extensions.bbenoist.nix
       pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
       pkgs.vscode-extensions.oderwat.indent-rainbow
+      pkgs.vscode-extensions.github.copilot
+      pkgs.vscode-extensions.ms-vsliveshare.vsliveshare
     ];
     userSettings = {
       "files.autoSave" = "afterDelay";
       "files.autoSaveDelay" = 2000;
       "window.zoomLevel" = 2;
+      "editor.inlineSuggest.enabled" = true;
     };
   };
 
@@ -61,9 +67,20 @@
 
   programs.zsh.enable = true;
   programs.zsh = {
+    shellAliases = {
+    home-update = "home-manager switch -f ~/repo/nixos-configs/home-manager.nix";
+    os-update = "sudo nixos-rebuild switch";
+    repo = "cd ~/repo";
+    work = "cd ~/repo/work";
+    tcopy = "xclip -selection c";
+  };
   oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "aws"];
+      plugins = [ 
+        "git"
+        "aws"
+        "vscode"
+        ];
       theme = "refined";
     };
   };
