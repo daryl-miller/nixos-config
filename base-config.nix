@@ -7,8 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-#      ./hardware-configuration.nix
-#      <home-manager/nixos>
+     /etc/nixos/hardware-configuration.nix
+     <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -83,6 +83,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dmiller = {
     isNormalUser = true;
@@ -96,10 +99,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-
-  nix.nixPath = [
-   "nixos-config=/home/dmiller/repo/nixos-configs/base-config.nix"
-  ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

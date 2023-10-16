@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+
+    imports =
+    [ # Include the results of the hardware scan.
+     <home-manager/nixos>
+    ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "dmiller";
