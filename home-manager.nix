@@ -2,10 +2,9 @@
 
 {
 
-    imports =
-    [ # Include the results of the hardware scan.
-     <home-manager/nixos>
-    ];
+  imports =
+  [ 
+  ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "dmiller";
@@ -37,6 +36,7 @@
     pkgs.neovim
     pkgs.steam
     pkgs.vscode
+    pkgs.docker
   ];
 
   programs.vscode = {
@@ -58,6 +58,16 @@
     userName = "dmiller";
     userEmail = "dev@darylmiller.me";
   };
+
+  programs.zsh.enable = true;
+  programs.zsh = {
+  oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "aws"];
+      theme = "refined";
+    };
+  };
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
