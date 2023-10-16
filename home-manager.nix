@@ -31,23 +31,28 @@
     pkgs.slack
     pkgs.neovim
     pkgs.steam
+    pkgs.vscode
   ];
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      pkgs.vscode-extensions.bbenoist.nix
+      pkgs.vscode-extensions.ms-vscode-remote.remote-ssh
+      pkgs.vscode-extensions.oderwat.indent-rainbow
+    ];
+    userSettings = {
+      "files.autoSave" = "afterDelay";
+      "files.autoSaveDelay" = 2000;
+      "window.zoomLevel" = 2;
+    };
+  };
 
   programs.git = {
     enable = true;
     userName = "dmiller";
     userEmail = "dev@darylmiller.me";
   };
-
-  programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
-
-  programs.bash.enable = true;
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
