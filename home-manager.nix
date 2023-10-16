@@ -34,7 +34,6 @@
     pkgs.thunderbird
     pkgs.slack
     pkgs.neovim
-    pkgs.steam
     pkgs.vscode
     pkgs.docker
     pkgs.awscli2
