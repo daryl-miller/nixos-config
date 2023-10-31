@@ -1,3 +1,8 @@
+# System level packages
+# TODO: Go through and break up packages into what they are required by. 
+# TODO: Look at verison pinning
+# TODO: Transition packages that don't need to be system level packages to the correct place
+
 { config, pkgs, ... }:
 
 {
@@ -30,7 +35,39 @@
         killall
         xautoclick
         pavucontrol
+        feh
+        gtk3
+        gtk3-x11
+        dex
+        dunst
+        sysstat #Required for cpu-usage
+        lm_sensors #Required for temperature scanning
+        power-profiles-daemon #Power profile for i3 script
+        scrot #Screenshot
     ];
+
+    fonts.packages = with pkgs; [
+        nerdfonts
+        noto-fonts
+        noto-fonts-cjk
+        noto-fonts-emoji
+        liberation_ttf
+        fira-code
+        fira-code-symbols
+        mplus-outline-fonts.githubRelease
+        dina-font
+        proggyfonts
+        font-awesome
+        powerline-fonts
+        powerline-symbols
+        dejavu_fonts
+        freefont_ttf
+        gyre-fonts # TrueType substitutes for standard PostScript fonts
+        unifont
+        noto-fonts-color-emoji
+    ];
+
+    programs.thunar.enable = true;
 
     programs.steam = {
         enable = true;

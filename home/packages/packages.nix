@@ -1,3 +1,7 @@
+# System level packages
+# TODO: Go through and break up packages into what they are required by. 
+# TODO: Look at verison pinning
+
 { config, pkgs, ... }:
 
 {
