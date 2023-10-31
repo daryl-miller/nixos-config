@@ -41,6 +41,7 @@
         scrot #Screenshot
         imagemagick #Blur lock screen
         (variety.override { fehSupport = true; }) #random backgrounds
+        lxappearance #icons
     ];
 
     fonts.packages = with pkgs; [
