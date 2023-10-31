@@ -44,6 +44,7 @@
         lm_sensors #Required for temperature scanning
         power-profiles-daemon #Power profile for i3 script
         scrot #Screenshot
+        imagemagick #Blur lock screen
     ];
 
     fonts.packages = with pkgs; [
