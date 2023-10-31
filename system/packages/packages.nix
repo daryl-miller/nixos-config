@@ -13,38 +13,34 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-        btop
-        bottles
+        btop #System monitor
+        bottles #Wine manager
         wineWowPackages.stable
         wineWowPackages.waylandFull
         dconf
-        vulkan-tools
-        lutris
+        vulkan-tools 
         vim
-        libnotify
-        kitty
-        rofi-wayland
-        swww
-        arandr
-        neofetch
-        dmidecode
-        memtester
-        balena-cli
+        kitty #Terminal
+        arandr #Screen management
+        neofetch #System info
+        dmidecode #Grab system info
+        balena-cli #Flash usb drives/SD cards
         unzip
-        qbittorrent
-        killall
-        xautoclick
-        pavucontrol
-        feh
-        gtk3
-        gtk3-x11
-        dex
-        dunst
+        qbittorrent #Downloading linux isos
+        killall 
+        pavucontrol #Audio management
+        feh #Background management
+        gtk3 #Themeing
+        gtk3-x11 #Themeing
+        dex #Autostart tool
+        dunst #Notification daemon
+        rofi #Application launcher
         sysstat #Required for cpu-usage
         lm_sensors #Required for temperature scanning
         power-profiles-daemon #Power profile for i3 script
         scrot #Screenshot
         imagemagick #Blur lock screen
+        (variety.override { fehSupport = true; }) #random backgrounds
     ];
 
     fonts.packages = with pkgs; [
@@ -68,6 +64,7 @@
         noto-fonts-color-emoji
     ];
 
+    #File explorer
     programs.thunar.enable = true;
 
     programs.steam = {
