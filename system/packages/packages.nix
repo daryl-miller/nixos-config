@@ -42,6 +42,7 @@
         imagemagick #Blur lock screen
         (variety.override { fehSupport = true; }) #random backgrounds
         lxappearance #icons
+        networkmanagerapplet
     ];
 
     fonts.packages = with pkgs; [
